@@ -10,7 +10,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeView(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: HomeView.routeName,
+      routes: {HomeView.routeName: (context) => HomeView()},
     );
   }
 }
