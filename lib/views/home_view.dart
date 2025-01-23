@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 
 class HomeView extends StatelessWidget {
   @override
+  static const String routeName = "homeView";
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
