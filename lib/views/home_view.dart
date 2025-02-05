@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/views/tabs/hadeth_tab/hadeth_tab.dart';
 import 'package:islami/views/tabs/quran_tab/quran_tab.dart';
 import 'package:islami/views/tabs/radio_tab.dart';
-import 'package:islami/views/tabs/sebha_tab.dart';
+import 'package:islami/views/tabs/sebha_tab/sebha_tab.dart';
 import 'package:islami/views/tabs/settings_tab.dart';
 
 class HomeView extends StatefulWidget {
