@@ -28,27 +28,25 @@ class _HadethTabState extends State<HadethTab> {
           height: 190,
           width: 300,
         )),
-        Divider(
-          thickness: 3,
-          color: Color(0xFFB7935F),
-        ),
+        Divider(),
         Text(
           "الأحاديث",
-          style:
-              GoogleFonts.elMessiri(fontSize: 25, fontWeight: FontWeight.w600),
+          style: Theme.of(context).textTheme.titleMedium,
         ),
-        Divider(
-          thickness: 3,
-          color: Color(0xFFB7935F),
-        ),
+        Divider(),
         Expanded(
           child: ListView.separated(
             itemBuilder: (context, index) {
               return InkWell(
                   onTap: () {
-                     Navigator.pushNamed(context, HadethDetails.routeName,arguments: allAhadeth[index]);
+                    Navigator.pushNamed(context, HadethDetails.routeName,
+                        arguments: allAhadeth[index]);
                   },
-                  child: Center(child: Text("${allAhadeth[index].title}",)));
+                  child: Center(
+                      child: Text(
+                    "${allAhadeth[index].title}",
+                    style: Theme.of(context).textTheme.labelMedium,
+                  )));
             },
             itemCount: allAhadeth.length,
             separatorBuilder: (BuildContext context, int index) {
@@ -56,7 +54,6 @@ class _HadethTabState extends State<HadethTab> {
                 thickness: 1,
                 indent: 50,
                 endIndent: 50,
-                color: Color(0xFFB7935F),
               );
             },
           ),

@@ -31,18 +31,14 @@ class _SuraDetailsState extends State<SuraDetails> {
           forceMaterialTransparency: true,
           title: Text(
             quranModel.suraName,
-            style: GoogleFonts.elMessiri(
-                fontSize: 30, fontWeight: FontWeight.w700),
+
           ),
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
+
         ),
         backgroundColor: Colors.transparent,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: Card(
-              elevation: 10,
-              color: Color(0x90F8F8F8),
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                 child: ListView.builder(
@@ -50,7 +46,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                     return Text(
                       "${verses[index]} (${index + 1}) ",
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 19),
+                      style: Theme.of(context).textTheme.bodySmall,
                       textDirection: TextDirection.rtl,
                     );
                   },

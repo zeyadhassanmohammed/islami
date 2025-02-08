@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:islami/color_palette.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -48,8 +49,8 @@ class _SebhaTabState extends State<SebhaTab> {
         ),
         Text(
           "عدد التسبيحات",
-          style:
-              GoogleFonts.elMessiri(fontSize: 25, fontWeight: FontWeight.w600),
+            style: Theme.of(context).textTheme.titleMedium
+
         ),
         Container(
             decoration: BoxDecoration(
@@ -59,8 +60,7 @@ class _SebhaTabState extends State<SebhaTab> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 "$counter",
-                style: GoogleFonts.inder(
-                    fontSize: 25, fontWeight: FontWeight.w400),
+                style: Theme.of(context).textTheme.labelMedium,
               ),
             )),
         SizedBox(
@@ -74,10 +74,8 @@ class _SebhaTabState extends State<SebhaTab> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 "${azkar[index]}",
-                style: GoogleFonts.inder(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white),
+                style: Theme.of(context).textTheme.labelMedium?.copyWith(color: whiteColor),
+
               ),
             )),
       ],
