@@ -253,8 +253,6 @@ class QuranTab extends StatelessWidget {
           height: 5,
         ),
         Divider(
-          thickness: 3,
-          color: Color(0xFFB7935F),
           height: 0,
         ),
         Row(
@@ -263,38 +261,26 @@ class QuranTab extends StatelessWidget {
               child: Center(
                 child: Text(
                   "رقم السوره",
-                  style: GoogleFonts.elMessiri(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 25,
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
             ),
             SizedBox(
               height: 50,
-              child: VerticalDivider(
-                color: Color(0xFFB7935F),
-                thickness: 3,
-                width: 3,
-              ),
+              child: VerticalDivider(),
             ),
             Expanded(
               child: Center(
                 child: Text(
                   "اسم السوره",
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.elMessiri(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 25,
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
             ),
           ],
         ),
         Divider(
-          thickness: 3,
-          color: Color(0xFFB7935F),
           height: 0,
         ),
         Expanded(
@@ -302,7 +288,9 @@ class QuranTab extends StatelessWidget {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, SuraDetails.routeName ,arguments: QuranModel(suraName: suraNames[index], suraIndex: index));
+                  Navigator.pushNamed(context, SuraDetails.routeName,
+                      arguments: QuranModel(
+                          suraName: suraNames[index], suraIndex: index));
                 },
                 child: Row(
                   children: [
@@ -310,22 +298,17 @@ class QuranTab extends StatelessWidget {
                         child: Center(
                             child: Text(
                       "${versesNumber[index]}",
-                      style: GoogleFonts.inder(
-                          fontSize: 25, fontWeight: FontWeight.w400),
+                      style: Theme.of(context).textTheme.labelMedium,
                     ))),
                     SizedBox(
                       height: 50,
-                      child: VerticalDivider(
-                        thickness: 3,
-                        color: Color(0xFFB7935F),
-                      ),
+                      child: VerticalDivider(),
                     ),
                     Expanded(
                         child: Center(
                             child: Text(
                       "${suraNames[index]}",
-                      style: GoogleFonts.inder(
-                          fontSize: 25, fontWeight: FontWeight.w400),
+                      style: Theme.of(context).textTheme.labelMedium,
                     )))
                   ],
                 ),

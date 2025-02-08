@@ -15,34 +15,30 @@ class HadethDetails extends StatelessWidget {
               fit: BoxFit.fill)),
       child: Scaffold(
         appBar: AppBar(
+          forceMaterialTransparency: true,
           title: Text(
             "${hadethModel.title}",
-            style: GoogleFonts.elMessiri(
-                fontSize: 20, fontWeight: FontWeight.w700),
+
           ),
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
         ),
         backgroundColor: Colors.transparent,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: Card(
-              elevation: 10,
-              color: Color(0x90F8F8F8),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                child: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) {
-                    return Text(
-                      "${hadethModel.content[index]}",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 19),
-                      textDirection: TextDirection.rtl,
-                    );
-                  },
-                  itemCount: hadethModel.content.length,
-                ),
-              )),
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+            child: ListView.builder(
+              itemBuilder: (BuildContext context, int index) {
+                return Text(
+                  "${hadethModel.content[index]}",
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodySmall,
+                  textDirection: TextDirection.rtl,
+                );
+              },
+              itemCount: hadethModel.content.length,
+            ),
+          )),
         ),
       ),
     );
