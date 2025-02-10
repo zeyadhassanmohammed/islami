@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:islami/providers/theme_provider.dart';
 import 'package:islami/views/tabs/hadeth_tab/hadeth_model.dart';
+import 'package:provider/provider.dart';
 
 class HadethDetails extends StatelessWidget {
   HadethDetails({super.key});
@@ -8,10 +10,11 @@ class HadethDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var hadethModel = ModalRoute.of(context)?.settings.arguments as HadethModel;
+    var themeProvider=Provider.of<ThemeProvider>(context);
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/main_bg.png"),
+              image: AssetImage(themeProvider.mode==ThemeMode.light?"assets/images/main_bg.png":"assets/images/main_bg_dark.png"),
               fit: BoxFit.fill)),
       child: Scaffold(
         appBar: AppBar(

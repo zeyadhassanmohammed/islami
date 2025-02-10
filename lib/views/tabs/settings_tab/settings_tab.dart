@@ -25,6 +25,7 @@ class SettingsTab extends StatelessWidget {
                  showModalBottomSheet(context: context,isScrollControlled: true, builder: (context) {
                    return ThemeBottomSheet();
                  },);
+
               },
               child: Container(
                   decoration: BoxDecoration(
