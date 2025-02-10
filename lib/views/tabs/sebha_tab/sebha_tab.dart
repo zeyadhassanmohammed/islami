@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/color_palette.dart';
+import 'package:islami/providers/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -21,16 +23,13 @@ class _SebhaTabState extends State<SebhaTab> {
   double angle = 0;
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
     return Column(
       children: [
         Stack(
           alignment: Alignment.topCenter,
           children: [
-            Center(
-                child: Image.asset(
-              "assets/images/head_of_sebha.png",
-              height: 85,
-            )),
+
             Padding(
                 padding: EdgeInsets.only(top: 30),
                 child: Transform.rotate(
@@ -39,22 +38,30 @@ class _SebhaTabState extends State<SebhaTab> {
                     onTap: () {
                       zekrIncrement();
                     },
-                    child: Image.asset(
-                      "assets/images/body_of_sebha.png",
+                    child:themeProvider.mode == ThemeMode.light
+                        ?  Image.asset(
+                      "assets/images/body_of_sebha.png"
+                          ,
                       height: 250,
-                    ),
+                    ):Image.asset("assets/images/body_of_sebha_dark.png",height: 280,),
                   ),
+                )),
+            Center(
+                child: themeProvider.mode == ThemeMode.light
+                    ? Image.asset(
+                  "assets/images/head_of_sebha.png",
+                  height: 85,
+                )
+                    : Image.asset(
+                  "assets/images/head_of_sebha_dark.png",
+                  height: 75,
                 )),
           ],
         ),
-        Text(
-          "عدد التسبيحات",
-            style: Theme.of(context).textTheme.titleMedium
-
-        ),
+        Text("عدد التسبيحات", style: Theme.of(context).textTheme.titleMedium),
         Container(
             decoration: BoxDecoration(
-                color: Color(0x8CB7935F),
+                color: themeProvider.mode == ThemeMode.light?primaryLightColor:secondaryDarkColor,
                 borderRadius: BorderRadius.circular(15)),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -68,14 +75,16 @@ class _SebhaTabState extends State<SebhaTab> {
         ),
         Container(
             decoration: BoxDecoration(
-                color: Color(0x8CB7935F),
+                color: themeProvider.mode == ThemeMode.light?primaryLightColor:primaryDarkColor,
                 borderRadius: BorderRadius.circular(15)),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 "${azkar[index]}",
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(color: whiteColor),
-
+                style: Theme.of(context)
+                    .textTheme
+                    .labelMedium
+                    ?.copyWith(color: whiteColor),
               ),
             )),
       ],
@@ -85,14 +94,14 @@ class _SebhaTabState extends State<SebhaTab> {
   zekrIncrement() {
     setState(() {
       counter++;
-      if (counter % 33==0) {
+      if (counter % 33 == 0) {
         index++;
         counter = 0;
       }
-      if(index==azkar.length){
-        index=0;
+      if (index == azkar.length) {
+        index = 0;
       }
-      angle+=90;
+      angle += 90;
     });
   }
 }
