@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/color_palette.dart';
 
@@ -12,31 +13,55 @@ class languageBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         spacing: 10,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Arabic",
-                style: Theme.of(context)
-                    .textTheme
-                    .labelMedium
-                    ?.copyWith(color: primaryLightColor),
-              ),
-              Icon(
-                Icons.done,
-                color: primaryLightColor,
-              ),
-            ],
+          InkWell(
+            onTap: () {
+              context.setLocale(Locale("ar"));
+              Navigator.pop(context);
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "العربيه",
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelMedium
+                      ?.copyWith(color:  context.locale == Locale("ar")
+                      ? primaryLightColor
+                      : blackColor,),
+                ),
+                context.locale == Locale("ar")
+                    ? Icon(
+                        Icons.done,
+                       color: primaryLightColor,
+                      )
+                    : SizedBox(),
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "English",
-                style: Theme.of(context).textTheme.labelMedium,
-              ),
-              Icon(Icons.done),
-            ],
+          InkWell(
+            onTap: () {
+              context.setLocale(Locale("en"));
+              Navigator.pop(context);
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "english",
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                      color: context.locale == Locale("en")
+                          ? primaryLightColor
+                          : blackColor),
+                ),
+                context.locale == Locale("en")
+                    ? Icon(
+                        Icons.done,
+                        color: primaryLightColor,
+                      )
+                    : SizedBox(),
+              ],
+            ),
           ),
         ],
       ),

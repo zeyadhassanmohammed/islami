@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/views/tabs/quran_tab/quran_model.dart';
@@ -260,7 +261,7 @@ class QuranTab extends StatelessWidget {
             Expanded(
               child: Center(
                 child: Text(
-                  "رقم السوره",
+                  "number_of_ayahs".tr(),
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
@@ -272,7 +273,7 @@ class QuranTab extends StatelessWidget {
             Expanded(
               child: Center(
                 child: Text(
-                  "اسم السوره",
+                  "surah_name".tr(),
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
