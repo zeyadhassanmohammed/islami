@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/my_theme_data.dart';
 import 'package:islami/providers/theme_provider.dart';
@@ -7,10 +8,17 @@ import 'package:provider/provider.dart';
 
 import 'views/home_view.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   runApp(
-     ChangeNotifierProvider(
-        create: (BuildContext context) => ThemeProvider(), child: MyApp()),
+    ChangeNotifierProvider(
+        create: (BuildContext context) => ThemeProvider(),
+        child: EasyLocalization(
+            supportedLocales: [Locale("en"), Locale("ar")],
+            saveLocale: true,
+            path: 'assets/translations',
+            child: MyApp())),
   );
 }
 
@@ -19,6 +27,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     var themeProvider = Provider.of<ThemeProvider>(context);
     return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       themeMode: themeProvider.mode,
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,

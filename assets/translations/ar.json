@@ -1,0 +1,14 @@
+{
+  "islami": "إسلامي",
+  "surah_name": "اسم السورة",
+  "number_of_ayahs": "عدد الآيات",
+  "hadiths": "الأحاديث",
+  "number_of_tasbeeh": "عدد التسبيحات",
+  "quran_radio": "إذاعة القرآن الكريم",
+  "theme": "المظهر",
+  "light": "نهاري",
+  "dark": "ليلي",
+  "language": "اللغه",
+  "arabic": "العربيه",
+  "english": "الأنجليزيه"
+}

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/color_palette.dart';
 import 'package:islami/providers/theme_provider.dart';
@@ -24,7 +25,7 @@ class ThemeBottomSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Light",
+                  "light".tr(),
                   style: themeProvider.mode == ThemeMode.light
                       ? Theme.of(context)
                       .textTheme
@@ -53,7 +54,7 @@ class ThemeBottomSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Dark",
+                  "dark".tr(),
                   style: themeProvider.mode == ThemeMode.dark
                       ? Theme.of(context)
                       .textTheme

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:islami/providers/theme_provider.dart';
@@ -32,7 +33,7 @@ class _HomeViewState extends State<HomeView> {
         appBar: AppBar(
           forceMaterialTransparency: true,
           title: Text(
-            "اسلامي",
+            "islami".tr(),
           ),
         ),
         body: tabs[selectedIndex],
