@@ -11,9 +11,11 @@ import 'views/home_view.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  ThemeProvider themeProvider= ThemeProvider();
+ await themeProvider.getTheme();
   runApp(
     ChangeNotifierProvider(
-        create: (BuildContext context) => ThemeProvider(),
+        create: (BuildContext context) => themeProvider,
         child: EasyLocalization(
             supportedLocales: [Locale("en"), Locale("ar")],
             saveLocale: true,
